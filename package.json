@@ -1,0 +1,9 @@
+{
+  "name": "wt-arg-bootsector-decoder",
+  "version": "1.0.0",
+  "description": "A decoder to solve the puzzle for phase2 of the Waking Titan ARG",
+  "main": "decoder.js",
+  "repository": "https://github.com/thomas-alrek/wt-arg-bootsector-decoder",
+  "author": "Thomas Alrek <thomas@alrek.no>",
+  "license": "MIT"
+}
