@@ -11,8 +11,7 @@ const alphabet = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f
 const rotate = (array, steps) => {
     steps = (steps || 0) % array.length
     steps += (steps < 0) ? array.length : 0
-    let removed = array.splice(0, steps)
-    array.push.apply(array, removed)
+    array.push.apply(array, array.splice(0, steps))
     return array
 }
 
@@ -31,10 +30,10 @@ const decode = (uniqueKey, decryptionKey = '1L 1L 2L 3R 5L 8R 13L') => {
         return n = n[n.length - 1] === 'r' ? -parseInt(n) : parseInt(n)
     })
     for (let i in uniqueKey) {
-        innerWheel = rotate(inner, decryptionKey[i])
+        innerWheel = rotate(innerWheel, decryptionKey[i])
         output += '' + innerWheel[outerWheel.indexOf(uniqueKey[i])]
     }
     return output
 }
 
-export default decode
+module.exports = decode
