@@ -26,6 +26,7 @@ const decode = (uniqueKey, decryptionKey = '1L 1L 2L 3R 5L 8R 13L') => {
     let innerWheel = alphabet.slice()
     let outerWheel = alphabet.slice()
     uniqueKey = uniqueKey.trim().toLowerCase().split('')
+    decryptionKey = /((\d+[LR] ?){6}\d+[LR])/gi.exec(decryptionKey)[0]
     decryptionKey = decryptionKey.trim().toLowerCase().split(' ').map(n => {
         return n = n[n.length - 1] === 'r' ? -parseInt(n) : parseInt(n)
     })
