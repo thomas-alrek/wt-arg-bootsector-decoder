@@ -1,3 +1,5 @@
+'use strict'
+
 const alphabet = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']
 
 /**
@@ -17,8 +19,8 @@ const rotate = (array, steps) => {
 /**
  * Decodes your unique key based on your decryption key
  *
- * @param {string} uniqueKey
- * @param {string} decryptionKey
+ * @param {String} uniqueKey
+ * @param {String} decryptionKey
  */
 const decode = (uniqueKey, decryptionKey = '1L 1L 2L 3R 5L 8R 13L') => {
     let output = ''
@@ -35,3 +37,4 @@ const decode = (uniqueKey, decryptionKey = '1L 1L 2L 3R 5L 8R 13L') => {
     return output
 }
 
+export default decode
