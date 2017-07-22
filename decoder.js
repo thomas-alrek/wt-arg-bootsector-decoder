@@ -1,4 +1,4 @@
-const wheel = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']
+const alphabet = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']
 
 /**
  * Rotates an array left or right n number of steps
@@ -20,19 +20,18 @@ const rotate = (array, steps) => {
  * @param {string} uniqueKey
  * @param {string} decryptionKey
  */
-const decode = (uniqueKey, decryptionKey) => {
+const decode = (uniqueKey, decryptionKey = '1L 1L 2L 3R 5L 8R 13L') => {
     let output = ''
-    let inner = wheel.slice()
-    let outer = wheel.slice()
+    let innerWheel = alphabet.slice()
+    let outerWheel = alphabet.slice()
     uniqueKey = uniqueKey.trim().toLowerCase().split('')
     decryptionKey = decryptionKey.trim().toLowerCase().split(' ').map(n => {
         return n = n[n.length - 1] === 'r' ? -parseInt(n) : parseInt(n)
     })
     for (let i in uniqueKey) {
-        inner = rotate(inner, decryptionKey[i])
-        output += '' + inner[outer.indexOf(uniqueKey[i])]
+        innerWheel = rotate(inner, decryptionKey[i])
+        output += '' + innerWheel[outerWheel.indexOf(uniqueKey[i])]
     }
     return output
 }
 
-module.exports = decode
