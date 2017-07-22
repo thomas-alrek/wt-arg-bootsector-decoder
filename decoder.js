@@ -1,6 +1,6 @@
 'use strict'
 
-const alphabet = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']
+const alphabet = '0123456789abcdef'
 
 /**
  * Rotates an array left or right n number of steps
@@ -23,8 +23,8 @@ const rotate = (array, steps) => {
  */
 const decode = (uniqueKey, decryptionKey = '1L 1L 2L 3R 5L 8R 13L') => {
     let output = ''
-    let innerWheel = alphabet.slice()
-    let outerWheel = alphabet.slice()
+    let innerWheel = alphabet.split('')
+    let outerWheel = alphabet.split('')
     uniqueKey = uniqueKey.trim().toLowerCase().split('')
     decryptionKey = /((\d+[LR] ?){6}\d+[LR])/gi.exec(decryptionKey)[0]
     decryptionKey = decryptionKey.trim().toLowerCase().split(' ').map(n => {
